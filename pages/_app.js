@@ -81,13 +81,11 @@ const MyApp = (props) => {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
 
-            <Paper>
-              <Layout />
-              <div style={{ minHeight: heights }}>
-                <Component {...pageProps} />
-              </div>
-              <Footer />
-            </Paper>
+            <Layout />
+            <div style={{ minHeight: heights }}>
+              <Component {...pageProps} />
+            </div>
+            <Footer />
           </ThemeProvider>
         </CacheProvider>
       </Provider>
