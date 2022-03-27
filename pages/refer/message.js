@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
-import { Typography, makeStyles } from "@mui/material";
+import { Typography } from "@mui/material";
 import Link from "next/link";
 import { getCookie, parseCookies } from "../../utils/auth";
 import { referalLink } from "../../action/refer";
 import Share from "../../containers/refer/Share";
+import { makeStyles } from "@mui/styles";
+
 const useStyle = makeStyles({
   link: {
     textDecoration: "none",

@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import { Grid, Typography, Paper, makeStyles, Button } from "@mui/material";
+import { Grid, Typography, Paper, Button } from "@mui/material";
 import PremiumForm from "../../containers/premium/Form";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   container: {

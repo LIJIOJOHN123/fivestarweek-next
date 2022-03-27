@@ -1,6 +1,7 @@
 import React from "react";
 import { Fragment } from "react";
-import { Grid, Paper, Avatar, makeStyles, Typography } from "@mui/material";
+import { Grid, Paper, Avatar, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 const useStyle = makeStyles((theme) => ({
   container: {

@@ -1,9 +1,10 @@
-import { makeStyles, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { Fragment } from "react";
 import Link from "next/link";
 import { getCookie, parseCookies } from "../../utils/auth";
 import { referalLink } from "../../action/refer";
 import Table from "../../containers/refer/Table";
+import { makeStyles } from "@mui/styles";
 
 const useStyle = makeStyles({
   link: {
