@@ -3,11 +3,7 @@ import DesktopMenu from "./desktop/Menu";
 import MobileMenu from "./mobile";
 import { makeStyles } from "@mui/styles";
 import { getCookie } from "../../utils/auth";
-import { localeList } from "../../store/actions/user/locale";
-import { authUserLoaded } from "../../store/actions/user/auth";
-import { notificationList } from "../../store/actions/user/notificaiton";
 import { useDispatch } from "react-redux";
-import { languageList } from "../../store/actions/user/langauge";
 const useStyle = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   sectionDesktop: {
@@ -30,18 +26,7 @@ const Menu = ({ children, themeValue }) => {
   const token = getCookie("token");
   const result = getCookie("languageName");
   const language = getCookie("language");
-  React.useEffect(() => {
-    dispatch(localeList(result));
-  }, [dispatch, result]);
-  React.useEffect(() => {
-    dispatch(languageList());
-  }, [dispatch, language]);
-  React.useEffect(() => {
-    if (token) {
-      dispatch(authUserLoaded(token));
-      dispatch(notificationList(5, token));
-    }
-  }, [token, dispatch]);
+
   return (
     <Fragment>
       <div className={classes.sectionDesktop}>

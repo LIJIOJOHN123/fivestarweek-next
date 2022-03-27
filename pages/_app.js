@@ -12,6 +12,11 @@ import createEmotionCache from "../theme/createEmotionCache";
 import useWindowDimensions from "../utils/hook";
 import { Provider } from "react-redux";
 import { useStore } from "../store/store";
+import { getCookie } from "../utils/auth";
+import { notificationList } from "../store/actions/user/notificaiton";
+import { languageList } from "../store/actions/user/langauge";
+import { localeList } from "../store/actions/user/locale";
+import { authUserLoaded } from "../store/actions/user/auth";
 
 export const Layout = dynamic(() => import("../containers/layout"), {
   ssr: false,
@@ -55,6 +60,20 @@ const MyApp = (props) => {
       }),
     [mode]
   );
+  const token = getCookie("token");
+  const result = getCookie("languageName");
+  React.useEffect(() => {
+    store.dispatch(languageList());
+    store.dispatch(localeList(result));
+  }, [result, store]);
+
+  React.useEffect(() => {
+    if (token) {
+      let promise1 = store.dispatch(authUserLoaded(token));
+      let promise2 = store.dispatch(notificationList(4, token));
+      Promise.all([promise1, promise2]);
+    }
+  }, [token, store]);
 
   const router = useRouter();
   React.useEffect(() => {
