@@ -6,8 +6,22 @@ import ChannelDashboard from "../../containers/channel/Dashboard";
 import axios from "axios";
 import { channelAuthVisit, channelIPVisit } from "../../action/visitor";
 import { getCookie } from "../../utils/auth";
-
+import { wrapper } from "../../store/store";
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles((theme) => ({
+  sectionDesktop: {
+    margin: 0,
+    marginTop: 25,
+    marginLeft: 2,
+    marginRight: 3,
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: 25,
+      paddingRight: 25,
+    },
+  },
+}));
 const ChannelById = ({ channels, channelId }) => {
+  const classes = useStyles();
   const head = () => (
     <Head>
       <title> {process.env.APP_NAME} - channel</title>
@@ -90,8 +104,10 @@ const ChannelById = ({ channels, channelId }) => {
   }, [channelId, dispatch]);
   return (
     <Fragment>
-      {/* {head()} */}
-      <ChannelDashboard channels={channels} channelId={channelId} />
+      {head()}
+      <div className={classes.sectionDesktop}>
+        <ChannelDashboard channels={channels} channelId={channelId} />
+      </div>
     </Fragment>
   );
 };

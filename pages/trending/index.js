@@ -1,15 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import { getCookie, parseCookies } from "../utils/auth";
-import ArticleList from "../containers/home/ArtList";
+import { getCookie, parseCookies } from "../../utils/auth";
+import ArticleList from "../../containers/home/ArtList";
 import { useSelector, useDispatch } from "react-redux";
-import Loading from "../components/Theme/Loading";
-import { categoryList } from "../store/actions/user/category";
+import Loading from "../../components/Theme/Loading";
+import { categoryList } from "../../store/actions/user/category";
 import { Button, Typography } from "@mui/material";
 import Router from "next/router";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { makeStyles } from "@mui/styles";
-
 const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
     margin: 0,
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const App = ({ props }) => {
-  const classes = useStyles();
   const head = () => (
     <Head>
       <title> {process.env.APP_NAME} </title>
@@ -77,6 +75,7 @@ const App = ({ props }) => {
   }, [dispatch, language]);
 
   const category = useSelector((state) => state.category);
+  const classes = useStyles();
   return (
     <React.Fragment>
       <h1 style={{ fontSize: 0 }}>
@@ -138,22 +137,6 @@ const App = ({ props }) => {
       )}
     </React.Fragment>
   );
-};
-App.getInitialProps = async ({ req, res }) => {
-  const token = parseCookies(req).token;
-  if (token) {
-    res.writeHead(302, {
-      // or 301
-      Location: `${process.env.DOMAIN}/home`,
-    });
-    res.end();
-    return {
-      token,
-    };
-  } else {
-    const tokens = "dafads";
-    return { tokens };
-  }
 };
 
 export default App;
