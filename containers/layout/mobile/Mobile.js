@@ -8,7 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Router from "next/router";
 import { useSelector } from "react-redux";
 import { ColorModeContext } from "../../../pages/_app";
-// import Alert from "../../../components/Alert";
+import Alert from "../../../components/alert";
 import { useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -80,7 +80,7 @@ const Mobile = ({ themeValue }) => {
       <Slide appear={false} direction="down" in={!trigger}>
         <AppBar className={classes.app}>
           <Toolbar position="static" className={classes.menu}>
-            {/* {open && message.msg && <Alert alert={message} />} */}
+            {open && message.msg && <Alert alert={message} />}
             <MobileSlide />
             <div className={classes.mar}>Fivestarweek</div>
             <div>
