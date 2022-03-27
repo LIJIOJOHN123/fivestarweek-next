@@ -71,9 +71,10 @@ const App = ({ props }) => {
     </Head>
   );
   const dispatch = useDispatch();
+  const language = getCookie("language");
   React.useEffect(() => {
-    dispatch(categoryList(6));
-  }, [dispatch]);
+    dispatch(categoryList(6, language));
+  }, [dispatch, language]);
 
   const category = useSelector((state) => state.category);
   return (

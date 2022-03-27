@@ -16,7 +16,7 @@ const intialState = {
   articleFollowedChannels: [],
   articlesCount: 0,
   page: 0,
-  // language: getLangauge("language"),
+  language: getLangauge("language"),
   articleSponsoredAuth: [],
   articleSponosoredGuest: [],
   sponsoredChannels: [],
