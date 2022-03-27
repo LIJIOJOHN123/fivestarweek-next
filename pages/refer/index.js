@@ -4,7 +4,6 @@ import { getCookie } from "../../utils/auth";
 import Router from "next/router";
 import { Grid, Paper } from "@mui/material";
 import Register from "../../containers/auth/Signup";
-import LoginLeft from "../../containers/home/LoginLeft";
 
 const RegisterPage = () => {
   const head = () => (
@@ -72,7 +71,6 @@ const RegisterPage = () => {
       <React.Fragment>
         {head()}
         <Grid container>
-          <LoginLeft />
           <Grid item lg={6} sm={12} xs={12} md={6}>
             <Paper
               style={{

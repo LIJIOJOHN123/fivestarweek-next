@@ -6,7 +6,6 @@ import ChannelDashboard from "../../containers/channel/Dashboard";
 import axios from "axios";
 import { channelAuthVisit, channelIPVisit } from "../../action/visitor";
 import { getCookie } from "../../utils/auth";
-import { wrapper } from "../../store/store";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   sectionDesktop: {

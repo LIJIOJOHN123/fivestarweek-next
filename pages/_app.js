@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import { wrapper } from "../store/store";
 import * as React from "react";
 import Head from "next/head";
 import { CacheProvider } from "@emotion/react";
@@ -12,6 +11,9 @@ import { CssBaseline, Paper } from "@mui/material";
 import createEmotionCache from "../theme/createEmotionCache";
 import useWindowDimensions from "../utils/hook";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import { useStore } from "../store/store";
+
 export const Layout = dynamic(() => import("../containers/layout"), {
   ssr: false,
 });
@@ -22,6 +24,7 @@ export const ColorModeContext = React.createContext({
 
 const MyApp = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const store = useStore(pageProps.initialReduxState);
 
   //width and height
   const { height, width } = useWindowDimensions();
@@ -35,7 +38,6 @@ const MyApp = (props) => {
 
   //dark mode
   const [mode, setMode] = React.useState("light");
-  console.log(mode);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -67,26 +69,31 @@ const MyApp = (props) => {
   }, [router.events]);
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <title>{process.env.APP_NAME} </title>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
+      <Provider store={store}>
+        <CacheProvider value={emotionCache}>
+          <Head>
+            <title>{process.env.APP_NAME} </title>
+            <meta
+              name="viewport"
+              content="initial-scale=1, width=device-width"
+            />
+          </Head>
+          <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
 
-          <Paper>
-            <Layout />
-            <div style={{ minHeight: heights }}>
-              <Component {...pageProps} />
-            </div>
-            <Footer />
-          </Paper>
-        </ThemeProvider>
-      </CacheProvider>
+            <Paper>
+              <Layout />
+              <div style={{ minHeight: heights }}>
+                <Component {...pageProps} />
+              </div>
+              <Footer />
+            </Paper>
+          </ThemeProvider>
+        </CacheProvider>
+      </Provider>
     </ColorModeContext.Provider>
   );
 };
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

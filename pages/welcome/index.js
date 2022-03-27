@@ -4,7 +4,7 @@ import { getCookie } from "../../utils/auth";
 import Router from "next/router";
 import { Grid, Typography, Paper } from "@mui/material";
 import Hidden from "@mui/material/Hidden";
-import Register from "../../containers/02 auth/Signup";
+import Register from "../../containers/auth/Signup";
 
 const WelcomePage = () => {
   const head = () => (

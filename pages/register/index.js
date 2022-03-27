@@ -6,7 +6,6 @@ import { Grid, Typography, Paper } from "@mui/material";
 import Register from "../../containers/auth/Signup";
 import LoginLeft from "../../containers/auth/LoginLeft";
 import { fetchArticle } from "../../store/actions/test";
-import { wrapper } from "../../store/store";
 import { languageList } from "../../store/actions/user/langauge";
 import { channelList } from "../../store/actions/user/channel";
 
@@ -101,10 +100,5 @@ const RegisterPage = () => {
     </div>
   );
 };
-RegisterPage.getInitialProps = wrapper.getInitialPageProps(
-  ({ dispatch }) =>
-    async () => {
-      await dispatch(channelList());
-    }
-);
+
 export default RegisterPage;

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
 import axios from "axios";
-import ArticleAnalysDetails from "./../../containers/22 analytics/ArticleDetails";
+import ArticleAnalysDetails from "./../../containers/analytics/ArticleDetails";
 
 const ArticleAnalyticsPage = ({ articles }) => {
   const head = () => (
