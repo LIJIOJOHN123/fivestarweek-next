@@ -13,7 +13,7 @@ import DropMenu from "./DropMenu";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import NotificatonMessage from "../../notification/index";
 import IconButton from "@mui/material/IconButton";
-import { useTheme } from "@mui/styles";
+import { useTheme } from "@mui/material";
 
 import Language from "./Language";
 import { ColorModeContext } from "../../../pages/_app";

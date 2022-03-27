@@ -9,7 +9,7 @@ import Router from "next/router";
 import { useSelector } from "react-redux";
 import { ColorModeContext } from "../../../pages/_app";
 // import Alert from "../../../components/Alert";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
