@@ -7,10 +7,9 @@ import Footer from "../containers/layout/footer";
 import dynamic from "next/dynamic";
 import * as gtag from "../utils/gtag";
 import { useRouter } from "next/router";
-import { CssBaseline, Paper } from "@mui/material";
+import { createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import createEmotionCache from "../theme/createEmotionCache";
 import useWindowDimensions from "../utils/hook";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import { useStore } from "../store/store";
 
