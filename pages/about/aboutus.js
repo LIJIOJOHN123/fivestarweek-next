@@ -144,8 +144,43 @@ const AboutUs = () => {
               </div>
             </Link>
           </div>
+    
+        </Grid>
+ 
+      </Grid>
+      <Grid container>
+      <Grid lg={2} xl={2} sm={12} md={2} xs={12}>
+</Grid>
+        <Grid lg={3} xl={6} sm={12} md={12} xs={12}>
+  
+            <img
+              src="https://publons.com/media/thumbs/academic/photos/f989f779-d956-431b-9c8b-23f324795341.jpg.200x200_q95_crop_detail_upscale.jpg"
+              height="200"
+              width="200"
+            />
+   <Typography style={{fontWeight:"bold"}}>Ram Kumar</Typography>
+            <Typography>Software engineer</Typography>
+            <Typography>ram.kumar@crowdsourcingonline.in</Typography>
+
+      
+        </Grid>
+        <Grid lg={3} xl={6} sm={12} md={12} xs={12}>
+
+   
+     
+            <img
+              src="https://fivestarweek.s3.ap-south-1.amazonaws.com/public/scanned+photo+(1).jpg"
+              height="200"
+              width="200"
+            />
+            <Typography style={{fontWeight:"bold"}}>Kumari Mamta Pathak</Typography>
+            <Typography>Software engineer</Typography>
+            <Typography>kumari.pathak@crowdsourcingonline.in</Typography>
+
+      
         </Grid>
       </Grid>
+      
     </Fragment>
   );
 };
